@@ -40,7 +40,6 @@ final class ZendeskInitializer {
     /// Lazily initialize the Zendesk Messaging SDK with the user-configured
     /// channel key. Uses `DefaultMessagingFactory` so we don't need to write
     /// a custom factory. Idempotent.
-    @discardableResult
     func initializeIfNeeded(completion: @escaping (Result<Void, Error>) -> Void) {
         initLock.lock()
         defer { initLock.unlock() }
